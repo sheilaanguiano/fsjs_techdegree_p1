@@ -19,7 +19,8 @@ const quotes = [
     quote: "D'oh!",
     source: "Homer Simpson",
     citation: '"Punching Bag" episode',
-    year: 1988
+    year: 1988,
+    tags: "Funny"
   },
   {
     quote: "Most powerful is he who has himself in his own power.",
@@ -36,13 +37,19 @@ const quotes = [
 ];
 
 
+/*** 
+ * `accesibleColor` array 
+***/
+
+
+
+
 
 /***
  * `getRandomQuote` function
 ***/
-
 /**
- * [returns a random index number from an array of objects] 
+ * [Returns a random object based on its index] 
  * 
  *  @param {[array]} param1 - [array of objects with quotes] 
  * @returns {[object]} [returns an Object quote] 
@@ -50,18 +57,41 @@ const quotes = [
 
 function getRandomQuote(arr) {
   const randomNumber = Math.floor(Math.random() * arr.length);
-  //console.log(randomNumber);
-  //return console.log(arr[randomNumber]); 
   return arr[randomNumber];
 };
 
-//getRandomQuote(quotes);
+/***
+ * `randomColor` function
+***/
+/**
+ * [Function that returns a random bakcgroundcolor 
+ * property from an array] 
+ * 
+ * @returns {[string]} [returns a string reprensenting the background color] 
+ */ 
+function randomColor() {
+  const accesibleColor = ['#938DFB', '#73B8FD', '#5CC2B4', '#FEB95E', '#FF75A1'];
+  const randomColor = Math.floor(Math.random() * accesibleColor.length);
+  return document.body.style.backgroundColor = accesibleColor[randomColor];
+};
+
+
 
 /***
  * `printQuote` function
 ***/
+/**
+ * [The function calls the getRandomQuote and with the
+ * data from the random Objects builds a string using
+ * string literal and ternary operator to build a quote with:
+ * quote, source and if available citation, year and tag which get 
+ * injected in a DOM node using the  .innerHTML property] 
+ *  
+ * @returns {[DOM node]} [returns an Element with  new content] 
+ */ 
 
 function printQuote() {
+  randomColor();
   const q = getRandomQuote(quotes);
   const htmlString = `
     <p class="quote">${q.quote}</p>
@@ -73,9 +103,14 @@ function printQuote() {
         ? `<span class="year">${q.year}</span>` 
         : ""}
     </p>
+    ${q.hasOwnProperty('tags') 
+        ? `<p class="source">${q.tags}</p>` 
+        : ""}
     `
   return document.getElementById('quote-box').innerHTML = htmlString;
 };
+
+setInterval(printQuote, 2000); 
 
 
 /***

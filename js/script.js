@@ -37,14 +37,6 @@ const quotes = [
 ];
 
 
-/*** 
- * `accesibleColor` array 
-***/
-
-
-
-
-
 /***
  * `getRandomQuote` function
 ***/
@@ -69,6 +61,7 @@ function getRandomQuote(arr) {
  * 
  * @returns {[string]} [returns a string reprensenting the background color] 
  */ 
+
 function randomColor() {
   const accesibleColor = ['#938DFB', '#73B8FD', '#5CC2B4', '#FEB95E', '#FF75A1'];
   const randomColor = Math.floor(Math.random() * accesibleColor.length);

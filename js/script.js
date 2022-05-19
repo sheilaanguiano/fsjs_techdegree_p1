@@ -41,12 +41,41 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 
+/**
+ * [returns a random index number from an array of objects] 
+ * 
+ *  @param {[array]} param1 - [array of objects with quotes] 
+ * @returns {[object]} [returns an Object quote] 
+ */ 
 
+function getRandomQuote(arr) {
+  const randomNumber = Math.floor(Math.random() * arr.length);
+  //console.log(randomNumber);
+  //return console.log(arr[randomNumber]); 
+  return arr[randomNumber];
+};
+
+//getRandomQuote(quotes);
 
 /***
  * `printQuote` function
 ***/
 
+function printQuote() {
+  const q = getRandomQuote(quotes);
+  const htmlString = `
+    <p class="quote">${q.quote}</p>
+    <p class="source">${q.source} 
+    ${q.hasOwnProperty('citation') 
+        ? `<span class="citation"> ${q.citation}</span>` 
+        : ""}
+    ${q.hasOwnProperty('year') 
+        ? `<span class="year">${q.year}</span>` 
+        : ""}
+    </p>
+    `
+  return document.getElementById('quote-box').innerHTML = htmlString;
+};
 
 
 /***

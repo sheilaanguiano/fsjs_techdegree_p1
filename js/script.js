@@ -43,7 +43,7 @@ const quotes = [
 /**
  * [Returns a random object based on its index] 
  * 
- *  @param {[array]} param1 - [array of objects with quotes] 
+ *  @param {[array]} - [array of objects with quotes] 
  * @returns {[object]} [returns an Object quote] 
  */ 
 
@@ -57,17 +57,20 @@ function getRandomQuote(arr) {
 ***/
 /**
  * [Function that returns a random bakcgroundcolor 
- * property from an array] 
- * 
- * @returns {[string]} [returns a string reprensenting the background color] 
+ * in a brute force sort of way] 
  */ 
 
 function randomColor() {
-  const accesibleColor = ['#938DFB', '#73B8FD', '#5CC2B4', '#FEB95E', '#FF75A1'];
-  const randomColor = Math.floor(Math.random() * accesibleColor.length);
-  return document.body.style.backgroundColor = accesibleColor[randomColor];
+  let r = Math.floor(Math.random() * (150 - 50)) + 50;
+  let g = Math.floor(Math.random() * (150 - 50)) + 50;
+  let b = Math.floor(Math.random() * (150 - 50)) + 50;
+  console.log(
+  document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+  );
 };
 
+
+const myInterval = setInterval(printQuote, 3000); 
 
 
 /***
@@ -79,8 +82,6 @@ function randomColor() {
  * string literal and ternary operator to build a quote with:
  * quote, source and if available citation, year and tag which get 
  * injected in a DOM node using the  .innerHTML property] 
- *  
- * @returns {[DOM node]} [returns an Element with  new content] 
  */ 
 
 function printQuote() {
@@ -100,10 +101,10 @@ function printQuote() {
         ? `<p class="source">${q.tags}</p>` 
         : ""}
     `
-  return document.getElementById('quote-box').innerHTML = htmlString;
+    document.getElementById('quote-box').innerHTML = htmlString;
+    clearInterval(myInterval);
 };
 
-setInterval(printQuote, 2000); 
 
 
 /***

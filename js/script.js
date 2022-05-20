@@ -60,6 +60,7 @@ function getRandomQuote(arr) {
  * by brute force, not the mots elegant solution] 
  */ 
 
+
 function randomColor() {
   let r = Math.floor(Math.random() * (150 - 50)) + 50;
   let g = Math.floor(Math.random() * (150 - 50)) + 50;
@@ -77,10 +78,12 @@ function randomColor() {
  * [The function calls the getRandomQuote and with the
  * data from the random Objects builds a string using
  * string literal and ternary operator to build a quote with:
- * quote, source and if available citation, year and tag which get 
- * injected in a DOM node using the  .innerHTML property] 
+ * quote, source and if available citation, year and tag which get injected in a DOM node using the  .innerHTML property] 
  */ 
 
+/*Setting the 3 second interval that gets cleared 
+when someone pushes the "Show another quote" button
+*/
 const myInterval = setInterval(printQuote, 3000); 
 
 function printQuote() {

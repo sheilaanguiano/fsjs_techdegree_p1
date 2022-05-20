@@ -43,7 +43,7 @@ const quotes = [
 /**
  * [Returns a random object based on its index] 
  * 
- *  @param {[array]} - [array of objects with quotes] 
+ *  @param {[arr]} - [array of objects with quotes] 
  * @returns {[object]} [returns an Object quote] 
  */ 
 
@@ -57,20 +57,17 @@ function getRandomQuote(arr) {
 ***/
 /**
  * [Function that returns a random bakcgroundcolor 
- * in a brute force sort of way] 
+ * by brute force, not the mots elegant solution] 
  */ 
 
 function randomColor() {
   let r = Math.floor(Math.random() * (150 - 50)) + 50;
   let g = Math.floor(Math.random() * (150 - 50)) + 50;
   let b = Math.floor(Math.random() * (150 - 50)) + 50;
-  console.log(
-  document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
-  );
+  
+  document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 };
 
-
-const myInterval = setInterval(printQuote, 3000); 
 
 
 /***
@@ -83,6 +80,8 @@ const myInterval = setInterval(printQuote, 3000);
  * quote, source and if available citation, year and tag which get 
  * injected in a DOM node using the  .innerHTML property] 
  */ 
+
+const myInterval = setInterval(printQuote, 3000); 
 
 function printQuote() {
   randomColor();

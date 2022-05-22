@@ -59,8 +59,8 @@ const quotes = [
 /**
  * [Returns a random object based on its index] 
  * 
- *  @param {[arr]} - [array of objects with quotes] 
- * @returns {[object]} [returns an Object quote] 
+ *  @param {[array]} arr - [array of objects with quotes] 
+ * @returns {[object]} [returns an Object quote base on its index] 
  */ 
 
 function getRandomQuote(arr) {
@@ -73,12 +73,12 @@ function getRandomQuote(arr) {
 ***/
 /**
  * [Function that returns a random bakcgroundcolor 
- * by brute force, not the mots elegant solution] 
+ * using rgb color model. For the sake of the excersice
+ * doesn't account for the cases that readbility might be an issue] 
  */ 
 
-
 function randomColor() {
-  let palette = [1, 1, 1];
+  let palette = [0, 0, 0];
   
   for(let i of palette) {
     palette.unshift (Math.round(Math.random()*255));
@@ -96,7 +96,7 @@ function randomColor() {
  * [The function calls the getRandomQuote and with the
  * data from the random Objects builds a string using
  * string literal and ternary operator to build a quote with:
- * quote, source and if available citation, year and tag which get injected in a DOM node using the  .innerHTML property] 
+ * quote, source and if available citation, year and tag which get injected in a DOM node using the  .innerHTML property.] 
  */ 
 
 /*Setting the 3 second interval that gets cleared 
@@ -122,8 +122,11 @@ function printQuote() {
         : ""}
     `
     document.getElementById('quote-box').innerHTML = htmlString;
+    
+    // Clears the interval, to let the person read the quote 
     clearInterval(myInterval);
-    myInterval = setInterval(printQuote, 3000); 
+    //Sets the Interval again giving more time
+    myInterval = setInterval(printQuote, 5000); 
 
 };
 

@@ -3,7 +3,7 @@
 
 An app that displays random famous quotes each time a button is clicked or automatically get's updated every 2 seconds with a different background color.
 
-The background color is part of an accessible color palette published on Dribble by Marivi Carlton: https://dribbble.com/shots/6566847-The-Zebra-s-Accessible-Color-Palette/attachments/1403545?mode=media
+Originally the randomColor() function used an array of WCAG AAA colors, that was randomized similar to the getRandomQuote() function, but for the sake of practice I'm using the refactored version
 
 The Code was tested on:
  - Chrome v 100.0.4896.88

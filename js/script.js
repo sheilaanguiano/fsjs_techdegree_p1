@@ -31,6 +31,22 @@ const quotes = [
     source: "Socrates lived in Athens circa 450 BCE",
   },
   {
+    quote: "Whereof one cannot speak, thereof one must be silent",
+    source: "Ludwig Wittgenstein",
+  },
+  {
+    quote: `I think therefore I am” (“Cogito, ergo sum”).`,
+    source: "René Descartes",
+  },
+  {
+    quote: "Even while they teach, men learn",
+    source: "Seneca the Younger",
+  },
+  {
+    quote: "We are what we repeatedly do. Excellence, then, is not an act, but a habit",
+    source: "Aristotle",
+  },
+  {
     quote: "Happiness resides not in possessions, and not in gold, happiness dwells in the soul.",
     source: "Democritus lived circa 400 BCE in Greece",
   }
@@ -62,13 +78,15 @@ function getRandomQuote(arr) {
 
 
 function randomColor() {
-  let r = Math.floor(Math.random() * (150 - 50)) + 50;
-  let g = Math.floor(Math.random() * (150 - 50)) + 50;
-  let b = Math.floor(Math.random() * (150 - 50)) + 50;
+  let palette = [1, 1, 1];
   
-  document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  for(let i of palette) {
+    palette.unshift (Math.round(Math.random()*255));
+    let popped = palette.pop();
+  }
+  
+  document.body.style.backgroundColor = `rgb(${palette[0]}, ${palette[1]}, ${palette[2]})`;
 };
-
 
 
 /***
@@ -84,7 +102,7 @@ function randomColor() {
 /*Setting the 3 second interval that gets cleared 
 when someone pushes the "Show another quote" button
 */
-const myInterval = setInterval(printQuote, 3000); 
+let myInterval = setInterval(printQuote, 3000); 
 
 function printQuote() {
   randomColor();
@@ -105,6 +123,8 @@ function printQuote() {
     `
     document.getElementById('quote-box').innerHTML = htmlString;
     clearInterval(myInterval);
+    myInterval = setInterval(printQuote, 3000); 
+
 };
 
 
